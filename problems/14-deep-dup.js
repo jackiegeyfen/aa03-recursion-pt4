@@ -33,10 +33,24 @@ let y = x.slice();
 console.log(x[0] === y[0]) // true
 ***********************************************************************/
 
+//base case -- if arr.length===0, means weve gone thru entire array
+
+//recursvie case -- arr.length > 0, means we need to continue to go thru the array and push potentially;
+
+//recursive step- after we copy, take each value and push it into a new array
 
 function deepDup(arr) {
-  // Your code here 
+  let returnArr=[];
+  for (let i=0; i < arr.length; i++){
+    let currEl= arr[i];
+    if (Array.isArray(currEl)){
+      returnArr.push(deepDup(currEl));
+    }
+ else returnArr.push(currEl);
+  }
+return returnArr;
 }
+
 
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
