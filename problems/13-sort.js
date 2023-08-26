@@ -22,7 +22,21 @@ sort([]); // []
 ***********************************************************************/
 
 function sort(nums, sorted = []) {
-    // Your code here 
+    let lowest= Infinity;
+    let index= -1;
+    if (nums.length === 0){
+        return sorted;
+    }
+    else for (let i= 0; i<nums.length; i++){
+        let currNum= nums[i];
+        if (currNum <= lowest){
+            lowest=currNum;
+            index= i
+        }
+    }
+    nums.splice(index,1);
+    sorted.push(lowest);
+    return sort(nums, sorted);
 }
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
